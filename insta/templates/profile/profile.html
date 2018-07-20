@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="well p-display center-block">
+    {% for profile in user_details %}
+
+          <img src="{{profile.pic.cdn_url}}" class="img-responsive img-circle" alt="user--image">
+
+
+  {% endfor %}
+  </div>
+
+{% endblock %}

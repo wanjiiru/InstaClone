@@ -14,6 +14,7 @@ def home(request):
 @login_required(login_url='/login')
 def profile(request):
     current_user=request.user
-    user_details=Profile.objects.filter(belongs_to = current_user.id).all()
+    user_details=Profile.objects.filter(belongs_to = current_user.id)
+    print(user_details)
 
     return render(request,'profile/profile.html',{"user_details":user_details})
