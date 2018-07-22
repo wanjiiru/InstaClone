@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3201b102-7706-4a7b-b979-2c23a655b9ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insta/templates/home.html" afterPath="$PROJECT_DIR$/insta/templates/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insta/views.py" afterPath="$PROJECT_DIR$/insta/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,8 +71,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insta/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            <state relative-caret-position="1008">
+              <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -157,9 +155,9 @@
         <option value="$PROJECT_DIR$/insta/forms.py" />
         <option value="$PROJECT_DIR$/insta/urls.py" />
         <option value="$PROJECT_DIR$/insta/models.py" />
-        <option value="$PROJECT_DIR$/insta/views.py" />
         <option value="$PROJECT_DIR$/insta/templates/home.html" />
         <option value="$PROJECT_DIR$/insta/templates/image.html" />
+        <option value="$PROJECT_DIR$/insta/views.py" />
       </list>
     </option>
   </component>
@@ -170,8 +168,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="994" />
-    <option name="y" value="472" />
+    <option name="x" value="1428" />
+    <option name="y" value="215" />
     <option name="width" value="1805" />
     <option name="height" value="1289" />
   </component>
@@ -578,7 +576,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="994" y="472" width="1805" height="1289" extended-state="0" />
+    <frame x="1428" y="215" width="1805" height="1289" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.106371194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -880,8 +878,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/insta/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state relative-caret-position="1008">
+          <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>

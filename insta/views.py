@@ -16,14 +16,16 @@ def home(request):
 
 @login_required(login_url='accounts/login/')
 def add_image(request):
+    current_user = request.user
+    creater = Profile.objects.get(belongs_to=current_user)
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
             add = form.save()
-            add.profile = request.user
+            add.profile = creater
             add.save()
             print(add)
-            return redirect('profile')
+            return redirect('home')
     else:
         form = ImageForm()
 
@@ -52,6 +54,7 @@ def profile(request):
 
 @login_required(login_url='/accounts/login/')
 def display_profile(request, profile_id):
-    profile = Profile.objects.get(belongs_to_id=profile_id)
+    profile_details = Profile.objects.filter(belongs_to_id=profile_id).all()
+    print(profile_details)
 
-    return render(request,'profile/profile.html',{"profile":profile})
+    return render(request,'profile/profile.html',{"profile":profile_details})
