@@ -34,8 +34,9 @@ def add_image(request):
 
 
 @login_required(login_url='/login')
-def profile(request):
+def profile(request,profile_id):
     current_user = request.user
+    profile_details = User.objects.filter(id=profile_id).all()
     user = User.objects.get(id=current_user.id)
     if current_user.is_authenticated() and current_user.id == user.id:
         if request.method == 'POST':
@@ -49,7 +50,7 @@ def profile(request):
 
 
 
-    return render(request, 'profile/new.html', {'profile_form':profile_form,'profile':profile})
+        return render(request, 'profile/new.html', {'profile_details':profile_details,'profile_form':profile_form })
 
 
 @login_required(login_url='/accounts/login/')
@@ -57,4 +58,4 @@ def display_profile(request, profile_id):
     profile_details = Profile.objects.filter(belongs_to_id=profile_id).all()
     print(profile_details)
 
-    return render(request,'profile/profile.html',{"profile":profile_details})
+    return render(request,'profile/profile.html',{"profile_details":profile_details})

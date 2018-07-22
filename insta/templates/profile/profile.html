@@ -44,7 +44,7 @@
                     </ul>
                     <p class="font3">{{profile_details.bio}}</p>
                     {% if profile.belongs_to == user.belongs_to %}
-                    <p><a href= "">Add Image</a></p>
+                    <p><a href= "{% url 'upload_image' %}">Add Image</a></p>
                     {% endif %}
                 </div>
             </div>
