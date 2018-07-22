@@ -34,7 +34,7 @@ class Profile(models.Model):
 
 
 class Image(models.Model):
-    pic = ImageField(blank=True,manual_crop='1080x800')
+    pic=ImageField(manual_crop='1080x800')
     name= models.CharField(max_length=55)
     caption = models.TextField(blank=True)
     likes=models.BooleanField(default=False)

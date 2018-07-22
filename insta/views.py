@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Image, Profile
-from .forms import ProfileForm
+from .forms import ProfileForm,ImageForm
 
 
 # Create your views here.
@@ -13,8 +13,26 @@ def home(request):
     all_images = Image.objects.all()
     this_list = []
     for image in all_images:
-        this_list.append((image,image.likes.filter(belongs_to = request.user)))
-    return render(request,'home.html',{"all_images":this_list})
+        this_list.append((image,image.likes))
+        print(this_list)
+    return render(request,'home.html',{"all_images":this_list,"user":current_user})
+
+
+@login_required(login_url='accounts/login/')
+def add_image(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            add = form.save(commit=False)
+            add.profile = request.user
+            add.save()
+            print(add)
+            return redirect('profile')
+    else:
+        form = ImageForm()
+
+
+    return render(request,'image.html',{"form":form})
 
 
 @login_required(login_url='/login')

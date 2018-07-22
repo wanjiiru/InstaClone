@@ -1,85 +1,38 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block content %}
+<div class="container top">
+    <div class="row">
+        <div class="col-md-7">
+            {% for image in all_images %}
+            <div class="home-images">
+                <p class="home-text">
+                    <a href="{% url 'profile'}">{{image.profile.belongs_to}}</a>
+                </p>
+                <img src="{{image.pic.cdn_url}}" alt="Image">
+                <ul class="list-inline home-text">
+                    <li class="list-inline-item">
+                        <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href=""><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <ul class="list-inline home-list">
+                    <li class="list-inline-item">
+                        <a href="{% url 'profile' %}">{{image.profile.belongs_to}}</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <p>{{image.caption}} </p>
 
-  {% for image, liked in all_images %}
-    <div class='row well image-display'>
-      <div class="image-wrapper">
+                    </li>
+                </ul>
 
-        <a href="{% url 'profile_data' image.image_created_by.id %}">
-          <div class="profile-username" style="float:left;">
-            {% if image.image_created_by.profile_photo %}
-              <img src="{{image.image_created_by.profile_avatar.url}}" class="img-responsive img-circle avatar" alt="Image">
-            {% else %}
-              <img src="{% static 'images/profile.jpg' %}" class="img-responsive img-circle avatar" alt="Image">
-            {% endif %}
-          </div>
-          <div class="username" style="float:left;">
-            <b>
-              {{image.image_created_by}}
-            </b>
-          </div>
-        </a>
-
-        <img src="{{image.image.url}}" class="img-responsive posted-img" alt="Image">
-
-        <span class="like-row">
-          {% if liked %}
-            <i class="fas fa-heart" id='like-icon' data-href="{% url 'like' image.id %}"></i>
-          {% else %}
-            <i class="far fa-heart" id='like-icon' data-href="{% url 'like' image.id %}"></i>
-          {% endif %}
-          <img id='comment-icon' src="{% static 'images/chatt.png' %}" class="img-responsive" alt="Image">
-        </span>
-
-        <span class="likes-count">{{ image.image_likes.count}}
-          likes</span><br>
-        <span class="image-caption">
-          <b>
-            {{image.image_created_by}}</b>
-
-          {{image.image_caption  | safe}}<br>
-
-          <span class="timesince">{{image.image_created_at | timesince | slice:":6"}}
-            <small>
-              AGO</small>
-          </span>
-        </span>
-        <div class="comments-cls">
-
-          {% for comment in image.comment_set.all %}
-
-            <b>
-              {{comment.comment_owner.profile_owner.username}}
-            </b>
-
-            {{comment.comment_post}}
-            <br>
-          {% endfor %}
-
+            </div>
+            {% empty %}
+            <h2>No images. Follow people to see their images</h2>
+            {% endfor %}
         </div>
-
-        <hr>
-
-        <form method="post" id="comment-form">
-          {% csrf_token %}
-          <input type="text" id="input1" name="comment" cols="40" placeholder="Add a comment..." required="required">
-
-          <button id="s-comment" type="submit" data-href="{% url 'comment' image.id %}">
-            <i class="fa fa-ellipsis-h"></i>
-          </button>
-
-        </form>
-
-      </div>
     </div>
-
-    {% empty %}
-    <div class="well row image-display">
-      <h2 class='alert alert-warning text-center'>
-        No images ,maybe you are not following anyone
-
-      </h2>
-    </div>
-  {% endfor %}
+</div>
 {% endblock %}
