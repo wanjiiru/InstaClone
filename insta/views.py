@@ -11,11 +11,7 @@ from .forms import ProfileForm,ImageForm
 def home(request):
     current_user = request.user
     all_images = Image.objects.all()
-    this_list = []
-    for image in all_images:
-        this_list.append((image,image.likes))
-        print(this_list)
-    return render(request,'home.html',{"all_images":this_list,"user":current_user})
+    return render(request,'home.html',{"all_images":all_images,"user":current_user})
 
 
 @login_required(login_url='accounts/login/')
@@ -23,7 +19,7 @@ def add_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            add = form.save(commit=False)
+            add = form.save()
             add.profile = request.user
             add.save()
             print(add)
