@@ -1,14 +1,13 @@
-{% extends 'base.html' %}
-{% load static %}
+
+{%extends "registration/base.html" %}
+{% load bootstrap3 %}
 {% block content %}
-
-  <div class="well p-display center-block">
-    {% for profile in user_details %}
-
-          <img src="{{profile.pic.cdn_url}}" class="img-responsive img-circle" alt="user--image">
-
-
-  {% endfor %}
-  </div>
-
+    <div class="container">
+        <div class="row">
+            <img src="{{ profile.pic.cdn_url }}" class="img-responsive" alt="image">
+        </div>
+        <div class="row">
+            {{ profile.bio }}
+        </div>
+    </div>
 {% endblock %}
