@@ -1,2 +1,16 @@
+certifi==2018.4.16
+chardet==3.0.4
+confusable-homoglyphs==3.1.1
 Django==1.11
+django-bootstrap3==10.0.1
+django-bootstrap4==0.0.6
+django-registration==2.4.1
+idna==2.7
+psycopg2==2.7.5
+psycopg2-binary==2.7.5
+python-dateutil==2.7.3
 pytz==2018.5
+pyuploadcare==2.5.0
+requests==2.19.1
+six==1.11.0
+urllib3==1.23

@@ -5,31 +5,32 @@
 <div class="container top">
     <div class="row">
         <div class="col-md-12">
-            <div class="row top-section">
-                <div class="col-md-5 profile-image">
-                    {% if profile_details.pic %}
-                    <img src="{{profile_details.pic.cdn_url}}" alt="profile-photo">
+            <div class="row">
+                <div class="col-md-5">
+                    {% if profile_details.profile_pic %}
+                    <img class="thumbnail" src="{{profile_details.profile_pic.cdn_url}}" alt="p-photo">
                     {% else %}
-                    <img src="/static/img/avi.jpeg" alt="avatar">
+                    <img class="thumbnail" src="https://goo.gl/images/HGd7LR" alt="avatar">
                     {% endif %}
                 </div>
                 <div class="col-md-5 text-center">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <span class="username">{{ profile.belongs_to }}</span>
+                            <span class="username">{{ profile.owner }}</span>
                         </li>
-                        {% if profile.belongs_to == user.belongs_to %}
+                        {% if profile.belongs_to == user.owner %}
                         <li class="list-inline-item">
-                            <a class="btn btn-edit" href="">Edit Profile</a>
+                            <a  href="{% url 'upload_image' %}">Edit Profile</a>
                         </li>
+                        {% endif %}
                         <li class="list-inline-item">
                             <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog fa-2x"></i></a>
                         </li>
-                        {% else %}
+
                         <li class="list-inline-item">
                             <a href="#" class="btn btn-primary">Follow</a>
                         </li>
-                        {% endif %}
+
                     </ul>
                     <ul class="list-inline">
                         <li class="list-inline-item">
@@ -43,7 +44,7 @@
                         </li>
                     </ul>
                     <p class="font3">{{profile_details.bio}}</p>
-                    {% if profile.belongs_to == user.belongs_to %}
+                    {% if profile.owner == user.owner %}
                     <p><a href= "{% url 'upload_image' %}">Add Image</a></p>
                     {% endif %}
                 </div>
@@ -51,10 +52,11 @@
         </div>
     </div>
     <hr>
-    <div class="row user-images">
-        {% for img in images %}
-        <div class="col-md-4 images">
-            <img src="{{img.pic.cdn_url}}" alt="Image">
+    <div class="row">
+        <div class="col-md-3 ">
+                    {% for image in images %}
+            <img src="{{image.pic.cdn_url}}" alt="Image">
+            {{image.caption}}
         </div>
         {% empty %}
         <div class="col-md-12">
