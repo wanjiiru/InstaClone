@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3201b102-7706-4a7b-b979-2c23a655b9ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insta/templates/navbar.html" afterPath="$PROJECT_DIR$/insta/templates/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insta/templates/profile/profile.html" afterPath="$PROJECT_DIR$/insta/templates/profile/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insta/models.py" afterPath="$PROJECT_DIR$/insta/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instagram/settings.py" afterPath="$PROJECT_DIR$/instagram/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +29,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insta/templates/profile/profile.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="903">
@@ -54,7 +54,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insta/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1153">
+            <state relative-caret-position="1132">
               <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
@@ -96,8 +96,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instagram/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1241">
-              <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state relative-caret-position="502">
+              <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -125,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insta/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            <state relative-caret-position="764">
+              <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -159,16 +159,16 @@
         <option value="$PROJECT_DIR$/insta/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/insta/templates/image.html" />
         <option value="$PROJECT_DIR$/insta/templates/base.html" />
-        <option value="$PROJECT_DIR$/instagram/settings.py" />
         <option value="$PROJECT_DIR$/insta/forms.py" />
         <option value="$PROJECT_DIR$/insta/templates/profile/new.html" />
         <option value="$PROJECT_DIR$/insta/templates/home.html" />
         <option value="$PROJECT_DIR$/insta/urls.py" />
-        <option value="$PROJECT_DIR$/insta/models.py" />
         <option value="$PROJECT_DIR$/insta/views.py" />
         <option value="$PROJECT_DIR$/insta/templates/results.html" />
         <option value="$PROJECT_DIR$/insta/templates/navbar.html" />
         <option value="$PROJECT_DIR$/insta/templates/profile/profile.html" />
+        <option value="$PROJECT_DIR$/instagram/settings.py" />
+        <option value="$PROJECT_DIR$/insta/models.py" />
       </list>
     </option>
   </component>
@@ -179,10 +179,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="48" />
-    <option name="y" value="27" />
-    <option name="width" value="2512" />
-    <option name="height" value="1413" />
+    <option name="x" value="1313" />
+    <option name="y" value="59" />
+    <option name="width" value="1163" />
+    <option name="height" value="1227" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -569,10 +569,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="27" width="2512" height="1413" extended-state="6" />
+    <frame x="1313" y="59" width="1163" height="1227" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07683121" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16595013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -923,14 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instagram/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1241">
-          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instagram/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -944,26 +936,6 @@
         <state relative-caret-position="189">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insta/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insta/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1153">
-          <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -999,6 +971,34 @@
           <caret line="46" column="50" lean-forward="false" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insta/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1132">
+          <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instagram/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insta/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

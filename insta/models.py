@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from pyuploadcare.dj.models import ImageField
-
+from friendship.models import Friend,Follow,Block
 
 # Create your models here.
 
@@ -70,7 +70,7 @@ class Comment(models.Model):
         self.delete()
 
     def __str__(self):
-        return str(self.comment_owner.belongs_to)
+        return str(self.comment_owner.username)
 
 
 
