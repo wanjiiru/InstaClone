@@ -16,12 +16,13 @@
                         <i class="fa fa-heart-o" style="color: red" aria-hidden="true"></i>
                     </li>
                     <li class="list-inline-item">
-                        <a href=""><i class="fa fa-comment" aria-hidden="true"></i></a>
+                        <a href=" {% url 'comment' image_id=image.id %}"><i class="fa fa-comment" aria-hidden="true"></i></a>
                     </li>
                 </ul>
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <p>{{image.name}} </p>
+                        {{image.comment}}
                         <p>{{image.caption}} </p>
 
                     </li>

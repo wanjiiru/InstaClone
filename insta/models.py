@@ -42,6 +42,7 @@ class Image(models.Model):
     caption = models.TextField(blank=True)
     likes=models.BooleanField(default=False)
     profile= models.ForeignKey(User, on_delete=models.CASCADE)
+    image_comments = models.ManyToManyField('Profile', default=False)
 
 
     def __str__(self):
@@ -68,6 +69,11 @@ class Comment(models.Model):
 
     def delete_comment(self):
         self.delete()
+
+    @classmethod
+    def get_comments_by_images(cls, id):
+        comments = Comment.objects.filter(image__pk=id)
+        return comments
 
     def __str__(self):
         return str(self.comment_owner.username)
