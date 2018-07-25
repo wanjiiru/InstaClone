@@ -81,7 +81,7 @@ def comment(request,image_id):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.image = image
-            comment.user = request.user
+            comment.comment_owner = request.user
             comment.save()
 
 
