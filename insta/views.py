@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Image, Profile,Comment,Follow,Friend
+from .models import Image, Profile,Comment,Follow
 from .forms import ProfileForm,ImageForm,CommentForm
-from friendship.models import FriendshipRequest
 
 
 # Create your views here.
@@ -50,16 +49,20 @@ def profile(request):
 
 @login_required(login_url='/accounts/login/')
 def display_profile(request, id):
+    users = User.objects.get(username=id)
+    follow = len(Follow.objects.followers(users))
+    following = len(Follow.objects.following(users))
+
     seekuser=User.objects.filter(id=id).first()
     profile = seekuser.profile
-    follow=Follow.objects.add_follower(request.user,followee=seekuser)
+
 
     profile_details = Profile.get_by_id(id)
     images = Image.get_profile_images(id)
     # print(images)
     print(profile.owner.id)
     print(request.user.id)
-    return render(request,'profile/profile.html',{"profile_details":profile_details,"profile":profile,"images":images,"follow":follow})
+    return render(request,'profile/profile.html',{"profile_details":profile_details,"profile":profile,"images":images,"follow":followers})
 
 def search(request):
     profiles = User.objects.all()
@@ -99,9 +102,7 @@ def comment(request,image_id):
 
 
 def follow(request,user_id):
-    users = User.objects.get(id=user_id)
 
-    following=len(Follow.objects.following(request.user))
-    follow =len(Follow.objects.following(request.user))
+    followers = Follow.objects.followers(request.user, followee=user_id)
 
     redirect(profile)
