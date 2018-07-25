@@ -1,0 +1,27 @@
+{% load static %}
+{% block content %}
+
+  {% for result in results %}
+
+    <div class='row'>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          {{result.username}}
+
+          {%if result.profile_pic %}
+            <img src="{{result.profile_pic.cdn_url}}" class="img-responsive" alt="Image">
+          {% else %}
+            <img src="{% static 'img/avi.jpeg' %}" class="img-responsive img-circle avatar" alt="Image">
+          {% endif %}
+          <br>{{result.bio}}</br>
+
+          Followers
+          {{result.followers.count}}
+        </div>
+      </div>
+
+    {% endfor %}
+    </div>
+
+  {% endblock %}

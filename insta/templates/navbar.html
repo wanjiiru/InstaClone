@@ -5,6 +5,17 @@
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars"></i>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 nav-search">
+                        <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}">
+                            <input class="form-control my-2 my-sm-0 search-input" name="username" type="search" placeholder="Search Users" aria-label="Search">
+                        </form>
+                    </div>
+                </div>
+            </div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link open-nav" href="{% url 'showprofile' id=user.id %}"><i class="fa fa-user">{{user}}</i></a>

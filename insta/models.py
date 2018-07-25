@@ -27,6 +27,11 @@ class Profile(models.Model):
         profile = Profile.objects.get(owner=id)
         return profile
 
+    @classmethod
+    def get_profile_by_username(cls, owner):
+        profiles = cls.objects.filter(owner__contains=owner)
+        return profiles
+
 
 
 

@@ -7,9 +7,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div style="size: cover; overflow:hidden; -webkit-border-radius:50px; -moz-border-radius:50px; border-radius:50px; width:90px;height:90px;">
+                <div style="overflow:hidden; -webkit-border-radius:50px; -moz-border-radius:50px; border-radius:50px; width:90px;height:90px;">
                     {% if profile_details.profile_pic %}
-                        <img class="img-thumbnail" src="{{profile_details.profile_pic.cdn_url}}" alt="photo">
+                        <img class="img-rounded" src="{{profile_details.profile_pic.cdn_url}}" alt="photo">
                     {% else %}
                         <img class="img-rounded" src=" {% static 'img/avi.jpeg' %}">
                     {% endif %}

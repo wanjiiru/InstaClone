@@ -57,3 +57,15 @@ def display_profile(request, id):
     print(profile.owner.id)
     print(request.user.id)
     return render(request,'profile/profile.html',{"profile_details":profile_details,"profile":profile,"images":images})
+
+def search(request):
+    profiles = User.objects.all()
+
+    if 'username' in request.GET and request.GET['username']:
+        search_term = request.GET.get('username')
+        results = User.objects.filter(username__icontains=search_term)
+        print(results)
+
+        return render(request,'results.html', {'results': results,"profiles":profiles})
+
+    return redirect(home)
