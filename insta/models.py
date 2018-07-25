@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from pyuploadcare.dj.models import ImageField
 
 
@@ -8,11 +8,12 @@ from pyuploadcare.dj.models import ImageField
 
 
 class Profile(models.Model):
-    profile_pic =ImageField(blank=True,manual_crop='1080x800')
-    bio = models.CharField(max_length=255,blank=True)
-    owner = models.CharField(max_length=255,blank=True)
+    profile_pic =ImageField( blank=True)
+    bio = models.CharField(max_length=255)
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+
     def __str__(self):
-        return str(self.owner)
+        return str(self.bio)
 
 
     def profile_save(self):

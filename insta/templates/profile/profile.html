@@ -1,35 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 {{ form.media }}
-<div class="container top">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-5">
+                <div style="size: cover; overflow:hidden; -webkit-border-radius:50px; -moz-border-radius:50px; border-radius:50px; width:90px;height:90px;">
                     {% if profile_details.profile_pic %}
-                    <img class="thumbnail" src="{{profile_details.profile_pic.cdn_url}}" alt="p-photo">
+                        <img class="img-thumbnail" src="{{profile_details.profile_pic.cdn_url}}" alt="photo">
                     {% else %}
-                    <img class="thumbnail" src="https://goo.gl/images/HGd7LR" alt="avatar">
+                        <img class="img-rounded" src=" {% static 'img/avi.jpeg' %}">
                     {% endif %}
                 </div>
                 <div class="col-md-5 text-center">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <span class="username">{{ profile.owner }}</span>
+                            <span class="username">{{ profile_details.owner }}</span>
                         </li>
-                        {% if profile.belongs_to == user.owner %}
+                        {% if profile.owner.id == user.id %}
                         <li class="list-inline-item">
-                            <a  href="{% url 'upload_image' %}">Edit Profile</a>
+                            <a  href="{% url 'profile' %}">Edit Profile</a>
                         </li>
-                        {% endif %}
-                        <li class="list-inline-item">
-                            <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog fa-2x"></i></a>
-                        </li>
-
+                        {% else %}
                         <li class="list-inline-item">
                             <a href="#" class="btn btn-primary">Follow</a>
                         </li>
+                        {% endif %}
+
 
                     </ul>
                     <ul class="list-inline">
@@ -44,7 +43,7 @@
                         </li>
                     </ul>
                     <p class="font3">{{profile_details.bio}}</p>
-                    {% if profile.owner == user.owner %}
+                    {% if profile.owner == user.username %}
                     <p><a href= "{% url 'upload_image' %}">Add Image</a></p>
                     {% endif %}
                 </div>
@@ -65,16 +64,5 @@
         {% endfor %}
     </div>
 </div>
-<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body"><ul class="list-group">
-            <li class="list-group-item text-center"><a href="">Edit Profile</a></li>
-            <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-            <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
-          </ul>
-      </div>
-    </div>
-  </div>
-</div>
+
 {% endblock %}
