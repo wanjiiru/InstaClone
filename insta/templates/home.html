@@ -22,11 +22,22 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <p>{{image.name}} </p>
-                        {{image.comment}}
                         <p>{{image.caption}} </p>
+                        {{image.Comment.comment}}
 
                     </li>
                 </ul>
+
+
+                 <p class=""> {{comments|length}} comments </p>
+                <hr>
+                <div class="col-md-4">
+                    {% for comment in comment %}
+                    {{comment.comment}}
+                    {{comment.comment_owner}}
+                    {% endfor %}
+
+                </div>
 
             </div>
             {% empty %}

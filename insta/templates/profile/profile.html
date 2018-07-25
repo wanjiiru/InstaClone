@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% load static %}
+{% load friendshiptags %}
 
 {% block content %}
 {{ form.media }}
@@ -36,8 +37,8 @@
                         <li class="list-inline-item">
                             <span class="font-weight-bold">{{images|length}} </span> Posts
                         </li>
-                        <li class="list-inline-item">
-                            <span class="font-weight-bold">0 </span> Followers
+                        <li href="{% url 'follow' user_id=user.id %}" class="list-inline-item">
+                            <span class="font-weight-bold">0 </span> Followers{{follower}}
                         </li>
                         <li class="list-inline-item">
                             <span class="font-weight-bold">0 </span> Following

@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^image/$', views.add_image, name='upload_image'),
     url(r'^ search/',views.search, name='search'),
     url(r'^comment/(?P<image_id>\d+)', views.comment, name='comment'),
+    url(r'^follow/(?P<user_id>\d+)', views.follow, name='follow'),
 
 ]
