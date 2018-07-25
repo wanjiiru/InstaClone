@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'registration/base.html' %}
+
 {% load static %}
 
 {% block content %}
@@ -42,8 +43,8 @@
                             <span class="font-weight-bold">0 </span> Following
                         </li>
                     </ul>
-                    <p class="font3">{{profile_details.bio}}</p>
-                    {% if profile.owner == user.username %}
+                    <p>{{profile_details.bio}}</p>
+                    {% if profile.owner == user.id %}
                     <p><a href= "{% url 'upload_image' %}">Add Image</a></p>
                     {% endif %}
                 </div>
