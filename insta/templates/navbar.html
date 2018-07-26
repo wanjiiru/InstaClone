@@ -1,11 +1,17 @@
 <nav class="navbar navbar-expand-lg" id="navMain">
     <div class="container">
-        <a class="" href="/"><i class="fa fa-instagram"style="font-size:48px;color:red" ></i></a>
+        <a class="" href="/"><i class="fa fa-instagram"style="font-size:48px;color:black" ></i></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars"></i>
         </button>
-        <a class="nav-link open-nav" href="{% url 'home'  %}"><i class="fa fa-home">Home</i></a>
+        {% if user.is_authenticated %}
+        <a class="nav-link open-nav" href="{% url 'upload_image'%}">
+            <i class="fa fa-upload" style="font-size: 48px;color: black"></i>Upload</a>
+        {%endif%}
+
+
+
 
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -21,12 +27,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     {% if user.is_authenticated %}
-                    <a class="nav-link open-nav" href="{% url 'showprofile' id=user.id %}"><i class="fa fa-user">{{user}}</i></a>
-                    {% endif %}
-                </li>
-
-                <li>
-
+                    <a class="nav-link open-nav" href="{% url 'showprofile' id=user.id %}"><i class="fa fa-user" style="font-size:48px;color:black">{{user}}</i></a>
+                    {%endif%}
                 </li>
             </ul>
         </div>
