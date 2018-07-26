@@ -4,11 +4,15 @@
 {% block content %}
 <div class="container text-center">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
             {% for image in all_images %}
             <div class="home-images">
                 <p class="home-text">
-                    <a href="{% url 'showprofile' id=image.profile.id %}">{{image.profile.username}}</a>
+                    <!--<img src="{{image.profile_details.profile_pic.cdn_url}}" class="rounded-circle" style="width:10%;" alt="">-->
+                    <!--<a href="{% url 'showprofile' id=image.profile.id %}"><i class="fa fa-user" style="font-size:48px"></i>-->
+                        <a href="{% url 'showprofile' id=image.profile.id %}"><i class="fa fa-user" style="font-size:48px"></i>
+
+                        {{image.profile.username}}</a>
                 </p>
                 <img src="{{image.pic.cdn_url}}" alt="Image">
                 <ul class="list-inline ">

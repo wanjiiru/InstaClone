@@ -1,6 +1,9 @@
+from django.http import Http404
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from friendship.exceptions import AlreadyExistsError
+
 from .models import Image, Profile,Comment,Follow
 from .forms import ProfileForm,ImageForm,CommentForm
 
@@ -12,6 +15,7 @@ def home(request):
     current_user = request.user
     all_images = Image.objects.all()
     comments = Comment.objects.all()
+    profile = Profile.objects.all()
     return render(request,'home.html',locals())
 
 
@@ -54,15 +58,13 @@ def display_profile(request, id):
     profile = seekuser.profile
     profile_details = Profile.get_by_id(id)
     images = Image.get_profile_images(id)
-    # print(images)
 
-    users = User.objects.get(id=id)
-    follow = len(Follow.objects.followers(users))
-    following = len(Follow.objects.following(users))
+    usersss = User.objects.get(id=id)
+    follower = len(Follow.objects.followers(usersss))
+    following = len(Follow.objects.following(usersss))
     people=User.objects.all()
     pip_following=Follow.objects.following(request.user)
-    print(pip_following)
-    print(people)
+
     return render(request,'profile/profile.html',locals())
 
 def search(request):
@@ -104,6 +106,7 @@ def comment(request,image_id):
 
 
 def follow(request,user_id):
-    other_user=User.objects.get(id=user_id)
-    Follow.objects.add_follower(request.user, other_user)
-    return redirect(profile)
+    users=User.objects.get(id=user_id)
+    follow = Follow.objects.add_follower(request.user, users)
+
+    return redirect('/profile/', locals())

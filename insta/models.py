@@ -42,6 +42,7 @@ class Image(models.Model):
     caption = models.TextField(blank=True)
     likes=models.BooleanField(default=False)
     profile= models.ForeignKey(User, on_delete=models.CASCADE)
+    profile_details = models.ForeignKey(Profile)
 
 
 

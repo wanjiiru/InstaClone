@@ -28,7 +28,7 @@
                         </li>
                         {% else %}
                         <li class="list-inline-item">
-                            <a href="#" class="btn btn-primary">Follow</a>
+                            <a href="{% url 'follow' user_id=profile.id %}" class="btn btn-primary">Follow</a>
                         </li>
                         {% endif %}
 
@@ -38,18 +38,21 @@
                         <li class="list-inline-item">
                             <span class="font-weight-bold">{{images|length}} </span> Posts
                         </li>
+                                                    <span class="font-weight-bold">{{following}} </span> Following
+                                                    <span class="font-weight-bold"> {{follower}}</span>Followers
 
 
 
-                        {% if people in pip_following %}
-                        <li class="list-inline-item">
-                            <span class="font-weight-bold">{{follower}} </span> Following
-                        </li>
-                        {% else %}
 
-                          <li href="{% url 'follow' user_id=profile.id %}" class="list-inline-item">
-                            <span class="font-weight-bold"> {{follow}}</span>Followers
-                        </li>
+
+                        <!--{% if people in pip_following %}-->
+                        <!--<li class="list-inline-item">-->
+                            <!--<span class="font-weight-bold">{{follower}} </span> Following-->
+                        <!--</li>-->
+                        <!--{% else %}-->
+                          <!--<li href="{% url 'follow' user_id=profile.id %}" class="list-inline-item">-->
+                            <!--<span class="font-weight-bold"> {{following}}</span>Followers-->
+                        <!--</li>-->
 
                         {% endif %}
                     </ul>
