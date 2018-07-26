@@ -17,6 +17,7 @@
                 <img src="{{image.pic.cdn_url}}" alt="Image">
                 <ul class="list-inline ">
                     <li class="list-inline-item">
+                        <a href=" {% url 'like' image_id=image.id %}">
                         <i class="fa fa-heart-o" style="color: red" aria-hidden="true"></i>
                     </li>
                     <li class="list-inline-item">

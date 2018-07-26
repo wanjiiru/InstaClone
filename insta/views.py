@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from friendship.exceptions import AlreadyExistsError
 
-from .models import Image, Profile,Comment,Follow
+from .models import Image, Profile,Comment,Follow,Likes
 from .forms import ProfileForm,ImageForm,CommentForm
 
 
@@ -85,6 +85,7 @@ def comment(request,image_id):
     image = Image.objects.get(id=image_id)
     profile_owner = User.objects.get(username=current_user)
     comments = Comment.objects.all()
+    likes=Likes.objects.all()
     print(comments)
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -110,3 +111,12 @@ def follow(request,user_id):
     follow = Follow.objects.add_follower(request.user, users)
 
     return redirect('/profile/', locals())
+
+
+def like(request, image_id):
+    current_user = request.user
+    image=Image.objects.get(id=image_id)
+    new_like,created= Likes.objects.get_or_create(liker=current_user, image=image)
+    new_like.save()
+
+    return redirect('home.html',locals())
