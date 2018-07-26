@@ -12,7 +12,7 @@ def home(request):
     current_user = request.user
     all_images = Image.objects.all()
     comments = Comment.objects.all()
-    return render(request,'home.html',{"all_images":all_images,"user":current_user,"comments":comments})
+    return render(request,'home.html',locals())
 
 
 @login_required(login_url='accounts/login/')
@@ -29,7 +29,7 @@ def add_image(request):
         form = ImageForm()
 
 
-    return render(request,'image.html',{"form":form})
+    return render(request,'image.html',locals())
 
 
 @login_required(login_url='/login')
@@ -45,7 +45,7 @@ def profile(request):
     else:
         form=ProfileForm()
 
-    return render(request, 'profile/new.html', {'form':form})
+    return render(request, 'profile/new.html', locals())
 
 
 @login_required(login_url='/accounts/login/')
@@ -63,7 +63,7 @@ def display_profile(request, id):
     pip_following=Follow.objects.following(request.user)
     print(pip_following)
     print(people)
-    return render(request,'profile/profile.html',{"profile_details":profile_details,"profile":profile,"images":images,"follow":follow,"following":following,"pip_following":pip_following,"people":people})
+    return render(request,'profile/profile.html',locals())
 
 def search(request):
     profiles = User.objects.all()
@@ -73,7 +73,7 @@ def search(request):
         results = User.objects.filter(username__icontains=search_term)
         print(results)
 
-        return render(request,'results.html', {'results': results,"profiles":profiles})
+        return render(request,'results.html',locals())
 
     return redirect(home)
 
@@ -100,7 +100,7 @@ def comment(request,image_id):
     else:
         form = CommentForm()
 
-    return render(request, 'comment.html', {'image': image, 'form': form, 'comments': comments,"owner":profile_owner})
+    return render(request, 'comment.html', locals())
 
 
 def follow(request,user_id):
