@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% load static %}
+
 {% load friendshiptags %}
 
 {% block content %}
@@ -37,12 +38,20 @@
                         <li class="list-inline-item">
                             <span class="font-weight-bold">{{images|length}} </span> Posts
                         </li>
-                        <li href="{% url 'follow' user_id=user.id %}" class="list-inline-item">
-                            <span class="font-weight-bold">0 </span> Followers{{follower}}
-                        </li>
+
+
+
+                        {% if people in pip_following %}
                         <li class="list-inline-item">
-                            <span class="font-weight-bold">0 </span> Following
+                            <span class="font-weight-bold">{{follower}} </span> Following
                         </li>
+                        {% else %}
+
+                          <li href="{% url 'follow' user_id=profile.id %}" class="list-inline-item">
+                            <span class="font-weight-bold"> {{follow}}</span>Followers
+                        </li>
+
+                        {% endif %}
                     </ul>
                     <p>{{profile_details.bio}}</p>
                     {% if profile.owner == user.id %}
@@ -61,7 +70,8 @@
         </div>
         {% empty %}
         <div class="col-md-12">
-            <h2>Upload images</h2>
+            <h2><a href= "{% url 'upload_image' %}">Add Image</a></h2>
+
         </div>
         {% endfor %}
     </div>

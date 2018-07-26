@@ -29,12 +29,15 @@
                 </ul>
 
 
-                 <p class=""> {{comments|length}} comments </p>
                 <hr>
                 <div class="col-md-4">
-                    {% for comment in comment %}
-                    {{comment.comment}}
-                    {{comment.comment_owner}}
+                    {% for comment in comments %}
+                    {% if comment.image_id == image.id%}
+                    <p class=""> {{comments.image_id|length}} comments </p>
+                    <small>{{comment.comment_owner}}</small>
+                    <p>{{comment.comment}}</p>
+
+                    {% endif %}
                     {% endfor %}
 
                 </div>
@@ -42,6 +45,8 @@
             </div>
             {% empty %}
             <h2>No images. Follow people to see their images</h2>
+                                <p><a href= "{% url 'upload_image' %}">Add Image</a></p>
+
             {% endfor %}
         </div>
     </div>

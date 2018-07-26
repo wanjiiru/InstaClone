@@ -42,7 +42,7 @@ class Image(models.Model):
     caption = models.TextField(blank=True)
     likes=models.BooleanField(default=False)
     profile= models.ForeignKey(User, on_delete=models.CASCADE)
-    comments = models.ManyToManyField('Profile')
+
 
 
     def __str__(self):
@@ -61,7 +61,7 @@ class Image(models.Model):
 
 class Comment(models.Model):
     image = models.ForeignKey(Image, on_delete=models.CASCADE,related_name='comment')
-    comment_owner = models.ForeignKey(Profile)
+    comment_owner = models.ForeignKey(User)
     comment= models.TextField()
 
     def save_comment(self):

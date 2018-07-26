@@ -11,7 +11,8 @@ from .forms import ProfileForm,ImageForm,CommentForm
 def home(request):
     current_user = request.user
     all_images = Image.objects.all()
-    return render(request,'home.html',{"all_images":all_images,"user":current_user})
+    comments = Comment.objects.all()
+    return render(request,'home.html',{"all_images":all_images,"user":current_user,"comments":comments})
 
 
 @login_required(login_url='accounts/login/')
@@ -34,7 +35,7 @@ def add_image(request):
 @login_required(login_url='/login')
 def profile(request):
     current_user = request.user
-    profile_details = Profile.objects.get(owner_id=current_user.id)
+    # profile_details = Profile.objects.get(owner_id=current_user.id)
     if request.method == 'POST':
         form = ProfileForm(request.POST,request.FILES)
         if form.is_valid():
@@ -49,20 +50,20 @@ def profile(request):
 
 @login_required(login_url='/accounts/login/')
 def display_profile(request, id):
-    users = User.objects.get(username=id)
-    follow = len(Follow.objects.followers(users))
-    following = len(Follow.objects.following(users))
-
     seekuser=User.objects.filter(id=id).first()
     profile = seekuser.profile
-
-
     profile_details = Profile.get_by_id(id)
     images = Image.get_profile_images(id)
     # print(images)
-    print(profile.owner.id)
-    print(request.user.id)
-    return render(request,'profile/profile.html',{"profile_details":profile_details,"profile":profile,"images":images,"follow":followers})
+
+    users = User.objects.get(id=id)
+    follow = len(Follow.objects.followers(users))
+    following = len(Follow.objects.following(users))
+    people=User.objects.all()
+    pip_following=Follow.objects.following(request.user)
+    print(pip_following)
+    print(people)
+    return render(request,'profile/profile.html',{"profile_details":profile_details,"profile":profile,"images":images,"follow":follow,"following":following,"pip_following":pip_following,"people":people})
 
 def search(request):
     profiles = User.objects.all()
@@ -80,20 +81,21 @@ def search(request):
 def comment(request,image_id):
     current_user=request.user
     image = Image.objects.get(id=image_id)
-    profile_owner = Profile.objects.get(owner=current_user)
-    comments = Comment.get_image_comments(image_id)
+    profile_owner = User.objects.get(username=current_user)
+    comments = Comment.objects.all()
+    print(comments)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.image = image
-            comment.comment_owner = profile_owner
+            comment.comment_owner = current_user
             comment.save()
 
             print(comments)
 
 
-            return redirect(home)
+        return redirect(home)
 
     else:
         form = CommentForm()
@@ -102,7 +104,6 @@ def comment(request,image_id):
 
 
 def follow(request,user_id):
-
-    followers = Follow.objects.followers(request.user, followee=user_id)
-
-    redirect(profile)
+    other_user=User.objects.get(id=user_id)
+    Follow.objects.add_follower(request.user, other_user)
+    return redirect(profile)
