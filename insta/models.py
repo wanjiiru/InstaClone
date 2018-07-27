@@ -83,11 +83,7 @@ class Comment(models.Model):
 class Likes(models.Model):
     liker=models.ForeignKey(User)
     image =models.ForeignKey(Image)
-    like = models.BooleanField(default=False, max_length=33)
 
-
-    def __str__(self):
-        return self.like
 
 
 

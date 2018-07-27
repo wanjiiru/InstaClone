@@ -15,7 +15,9 @@ def home(request):
     current_user = request.user
     all_images = Image.objects.all()
     comments = Comment.objects.all()
+    likes = Likes.objects.all
     profile = Profile.objects.all()
+    print(likes)
     return render(request,'home.html',locals())
 
 
@@ -85,7 +87,6 @@ def comment(request,image_id):
     image = Image.objects.get(id=image_id)
     profile_owner = User.objects.get(username=current_user)
     comments = Comment.objects.all()
-    likes=Likes.objects.all()
     print(comments)
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -119,4 +120,4 @@ def like(request, image_id):
     new_like,created= Likes.objects.get_or_create(liker=current_user, image=image)
     new_like.save()
 
-    return redirect('home.html',locals())
+    return redirect('home')
