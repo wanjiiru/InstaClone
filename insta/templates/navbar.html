@@ -25,6 +25,14 @@
                     <a class="nav-link open-nav" href="{% url 'showprofile' id=user.id %}"><i class="fa fa-user" style="font-size:30px;color:black">{{user}}</i></a>
                     {%endif%}
                 </li>
+
+            </ul>
+
+            <ul  class="navbar-nav ml-auto">
+                   <li>
+                       <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <a href="/logout">Logout</a>
+                   </li>
             </ul>
         </div>
     </div>

@@ -61,10 +61,43 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-3 ">
-                    {% for image in images %}
-            <img src="{{image.pic.cdn_url}}" alt="Image">
-            {{image.caption}}
+        {% for image in images %}
+        <div class="col-md-4">
+            <h3 class="card-title"><{{image.caption}}</h3>
+            <div class="card" style="width: auto">
+                <img src="{{image.pic.cdn_url}}" alt="Image" class="card-img-top">
+
+            </div>
+            <div class="container">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href=" {% url 'like' image_id=image.id %}">
+                        <i class="fa fa-heart-o" style="color: black" aria-hidden="true"></i></a>
+
+                        <a href=" {% url 'comment' image_id=image.id %}">
+                            <i class="fa fa-comment-o" aria-hidden="true" style="color:black;"></i></a>
+                    </li>
+                    <p></p>{{likes|length}} likes
+
+                </ul>
+                    <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <h5><strong>{{image.profile.username}}</strong> {{image.caption}}</h5>
+
+                    </li>
+                </ul>
+                <div class="card-body text-center">
+                    {% for comment in comments %}
+                    {% if comment.image_id == image.id%}
+                    <p class=""> {{comments.image_id|length}} comments </p>
+                    <small>{{comment.comment_owner}}</small>
+                    <p>{{comment.comment}}</p>
+                    <hr>
+
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                </div>
         </div>
         {% empty %}
         <div class="col-md-12">
