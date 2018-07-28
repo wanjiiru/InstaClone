@@ -1,4 +1,4 @@
-# [Instagram]
+# Instagram
 #### Web clone of the Instagram app
 
 ## Description
@@ -15,7 +15,7 @@ users can view photos uploaded by other users in the home page of app.
 1. Ubuntu Software
 2. Python3.6
 3. [Postgres](https://www.postgresql.org/download/)
-4. [python virtualenv]
+4. python virtualenv
 
 ### Clone the Repo
 Run the following command on the terminal:
